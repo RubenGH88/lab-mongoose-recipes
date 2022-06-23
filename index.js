@@ -26,7 +26,8 @@ mongoose
 				'1 1/4 cups fresh breadcrumbs oil, for shallow-frying',
 				'1 tbsp butter',
 				'1 1/4 cups milk',
-				'1 tsp Dijon mustard'
+				'1 tsp Dijon mustard',
+        'A new'
 			],
 			cuisine: 'Whovian',
 			dishType: 'dessert',
@@ -56,9 +57,12 @@ mongoose
     
     return Recipe.deleteOne({ title: 'Carrot Cake'});
   })
+.then((response)=>{
+  mongoose.connection.close()
+})
 
-
-  
   .catch(error => {
     console.error('Error connecting to the database', error);
+    
   });
+
